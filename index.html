@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Fit-Flomo - Your Complete Fitness Companion</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Your Complete Fitness Companion - Track workouts, nutrition, and progress">
+    <meta name="theme-color" content="#4ecdc4">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Fit-Flomo">
+    
+    <!-- Mobile-specific meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Manifest - Only load when not using file:// protocol -->
+    <script>
+        if (window.location.protocol !== 'file:') {
+            const manifestLink = document.createElement('link');
+            manifestLink.rel = 'manifest';
+            manifestLink.href = 'manifest.json';
+            document.head.appendChild(manifestLink);
+        }
+    </script>
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0idXJsKCNncmFkaWVudCkiLz4KPHBhdGggZD0iTTE2IDhDMTIuNjg2MyA4IDEwIDEwLjY4NjMgMTAgMTRWMjRDMTAgMjcuMzEzNyAxMi42ODYzIDMwIDE2IDMwQzE5LjMxMzcgMzAgMjIgMjcuMzEzNyAyMiAyNFYxNEMyMiAxMC42ODYzIDE5LjMxMzcgOCAxNiA4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTE0IDEySDE4VjIwSDE0VjEyWiIgZmlsbD0iIzFlMWUxZSIvPgo8cGF0aCBkPSJNMTIgMTRIMjBWMThIMTJWMTRaIiBmaWxsPSIjMWUxZTFlIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50IiB4MT0iMCIgeTE9IjAiIHgyPSIzMiIgeTI9IjMyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNmZjZiNmIiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNGVjZGM0Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Barcode Scanner Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+</head>
+<body>
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>🏃‍♂️ Fit-Flomo</h1>
+                <p>Your Complete Fitness Companion</p>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-tab="dashboard">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </button>
+                <button class="nav-btn" data-tab="workouts">
+                    <i class="fas fa-dumbbell"></i>
+                    Workouts
+                </button>
+                <button class="nav-btn" data-tab="nutrition">
+                    <i class="fas fa-apple-alt"></i>
+                    Nutrition
+                </button>
+                <button class="nav-btn" data-tab="progress">
+                    <i class="fas fa-chart-line"></i>
+                    Progress
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="tab-content active">
+            <div class="section-header">
+                <h2>📊 Dashboard</h2>
+                <p>Track your fitness journey and stay motivated</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-tint"></i>
+                    <div>
+                        <h3>Water Intake</h3>
+                        <p><span id="water-display">0</span>ml / 2000ml</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <div>
+                        <h3>Calories Burned</h3>
+                        <p><span id="calories-burned">0</span> cal</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <div>
+                        <h3>Workouts Completed</h3>
+                        <p><span id="workouts-completed">0</span> workouts</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <div>
+                        <h3>Day Streak</h3>
+                        <p><span id="day-streak">0</span> days</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-buttons">
+                    <button class="action-btn" onclick="startQuickWorkout()">
+                        <i class="fas fa-rocket"></i>
+                        Quick Workout
+                    </button>
+                    <button class="action-btn" onclick="generateMealPlan()">
+                        <i class="fas fa-utensils"></i>
+                        Generate Meal Plan
+                    </button>
+                    <button class="action-btn" onclick="addWater(250)">
+                        <i class="fas fa-tint"></i>
+                        Add Water (+250ml)
+                    </button>
+                    <button class="action-btn" onclick="startFitnessQuiz()">
+                        <i class="fas fa-question-circle"></i>
+                        Fitness Quiz
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div id="activity-feed" class="activity-list">
+                    <div class="activity-item">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Welcome to Fit-Flomo! Start your fitness journey today.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workouts Section -->
+        <section id="workouts" class="tab-content">
+            <div class="section-header">
+                <h2>💪 Workouts</h2>
+                <p>Choose your workout or let AI create one for you</p>
+            </div>
+
+            <!-- Workout Types -->
+            <div class="workout-types">
+                <div class="workout-card" onclick="startWorkout('full-body')">
+                    <div class="workout-icon">🏃</div>
+                    <h3>Full Body Workout</h3>
+                    <p>Complete body workout for all fitness levels</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 30-45 min</span>
+                        <span><i class="fas fa-fire"></i> 200-300 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('upper-body')">
+                    <div class="workout-icon">🏋️</div>
+                    <h3>Upper Body Workout</h3>
+                    <p>Focus on arms, chest, and shoulders</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 25-35 min</span>
+                        <span><i class="fas fa-fire"></i> 150-250 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('lower-body')">
+                    <div class="workout-icon">🦵</div>
+                    <h3>Lower Body Workout</h3>
+                    <p>Target legs, glutes, and core</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 25-35 min</span>
+                        <span><i class="fas fa-fire"></i> 150-250 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('cardio')">
+                    <div class="workout-icon">❤️</div>
+                    <h3>Cardio Workout</h3>
+                    <p>High-intensity cardio training</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 20-30 min</span>
+                        <span><i class="fas fa-fire"></i> 200-350 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('strength')">
+                    <div class="workout-icon">💪</div>
+                    <h3>Strength Training</h3>
+                    <p>Build muscle and increase strength</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 40-50 min</span>
+                        <span><i class="fas fa-fire"></i> 250-350 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('hiit')">
+                    <div class="workout-icon">⚡</div>
+                    <h3>HIIT Training</h3>
+                    <p>High-intensity interval training</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 25-35 min</span>
+                        <span><i class="fas fa-fire"></i> 300-400 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('yoga')">
+                    <div class="workout-icon">🧘</div>
+                    <h3>Yoga Flow</h3>
+                    <p>Mindful movement and flexibility</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 30-40 min</span>
+                        <span><i class="fas fa-fire"></i> 120-180 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('core')">
+                    <div class="workout-icon">🔥</div>
+                    <h3>Core Crusher</h3>
+                    <p>Target your abs and core muscles</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 20-25 min</span>
+                        <span><i class="fas fa-fire"></i> 150-200 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('pilates')">
+                    <div class="workout-icon">🎯</div>
+                    <h3>Pilates Power</h3>
+                    <p>Core strength and body control</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 25-30 min</span>
+                        <span><i class="fas fa-fire"></i> 140-180 cal</span>
+                    </div>
+                </div>
+                <div class="workout-card" onclick="startWorkout('dance')">
+                    <div class="workout-icon">💃</div>
+                    <h3>Dance Cardio</h3>
+                    <p>Fun cardio with dance moves</p>
+                    <div class="workout-stats">
+                        <span><i class="fas fa-clock"></i> 30-40 min</span>
+                        <span><i class="fas fa-fire"></i> 280-350 cal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Workout Generator -->
+            <div class="ai-section">
+                <h3>🤖 AI Workout Generator</h3>
+                <p>Get a personalized workout based on your goals and fitness level</p>
+                <button class="ai-btn" onclick="generateAIWorkout()">
+                    <i class="fas fa-magic"></i>
+                    Generate AI Workout
+                </button>
+            </div>
+
+            <!-- Workout History -->
+            <div class="workout-history">
+                <h3>📊 Workout History</h3>
+                <div id="history-list" class="history-list">
+                    <p style="text-align: center; color: #888;">No workouts completed yet. Start your first workout!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutrition Section -->
+        <section id="nutrition" class="tab-content">
+            <div class="section-header">
+                <h2>🍎 Nutrition</h2>
+                <p>Track your water intake and plan your meals</p>
+            </div>
+
+            <!-- Water Tracking -->
+            <div class="water-tracking">
+                <h3>💧 Water Tracking</h3>
+                <div class="water-circle">
+                    <div class="water-fill" id="water-fill"></div>
+                    <div class="water-text">
+                        <span id="water-amount">0</span>
+                        <small>ml</small>
+                    </div>
+                </div>
+                <div class="water-buttons">
+                    <button class="water-btn" onclick="addWater(250)">+250ml</button>
+                    <button class="water-btn" onclick="addWater(500)">+500ml</button>
+                    <button class="water-btn" onclick="addWater(1000)">+1000ml</button>
+                </div>
+            </div>
+
+            <!-- Meal Planning -->
+            <div class="meal-planning">
+                <h3>🍽️ Meal Planning</h3>
+                <div class="meal-actions">
+                    <button class="meal-btn" onclick="generateMealPlan()">
+                        <i class="fas fa-magic"></i>
+                        Generate Meal Plan
+                    </button>
+                    <button class="meal-btn" onclick="openFoodScanner()">
+                        <i class="fas fa-barcode"></i>
+                        Scan Food
+                    </button>
+                </div>
+                <div id="meal-plan" class="meal-plan">
+                    <p style="text-align: center; color: #888;">Click "Generate Meal Plan" to get started!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="tab-content">
+            <div class="section-header">
+                <h2>📈 Progress</h2>
+                <p>Track your fitness journey and manage your data</p>
+            </div>
+
+            <!-- Statistics -->
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <div>
+                        <h3>Total Workouts</h3>
+                        <p><span id="total-workouts">0</span></p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <div>
+                        <h3>Total Calories</h3>
+                        <p><span id="total-calories">0</span> cal</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Avg Workout Time</h3>
+                        <p><span id="avg-time">0</span> min</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <h3>Best Streak</h3>
+                        <p><span id="best-streak">0</span> days</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Management -->
+            <div class="data-management">
+                <h3>📊 Data Management</h3>
+                <div class="data-buttons">
+                    <button class="data-btn" onclick="updateMetrics()">
+                        <i class="fas fa-edit"></i>
+                        Update Metrics
+                    </button>
+                    <button class="data-btn" onclick="exportData()">
+                        <i class="fas fa-download"></i>
+                        Export Data
+                    </button>
+                    <button class="data-btn" onclick="viewCharts()">
+                        <i class="fas fa-chart-bar"></i>
+                        View Charts
+                    </button>
+                    <button class="data-btn" onclick="resetProgress()">
+                        <i class="fas fa-redo"></i>
+                        Reset Progress
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Workout Modal -->
+    <div id="workout-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="workout-title">Workout</h2>
+                <span class="close-btn" onclick="closeModal('workout-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="workout-exercises"></div>
+                <div class="workout-actions">
+                    <button class="workout-btn" onclick="completeWorkout()">
+                        <i class="fas fa-check"></i>
+                        Complete Workout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Fitness Assessment</h2>
+                <span class="close-btn" onclick="closeModal('quiz-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="quiz-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food Scanner Modal -->
+    <div id="scanner-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Food Scanner</h2>
+                <span class="close-btn" onclick="closeModal('scanner-modal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="scanner-container">
+                    <div class="scanner-placeholder">
+                        <i class="fas fa-camera"></i>
+                        <h3>Food Scanner</h3>
+                        <p>Point your camera at a food item to scan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

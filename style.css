@@ -1,0 +1,2974 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d1b69 50%, #1e1e1e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.header {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-color: transparent;
+}
+
+/* Main Content */
+.main {
+    padding: 2rem 0;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dashboard Styles */
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.dashboard-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dashboard-header p {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-content h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.stat-content p {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+/* Quick Actions */
+.quick-actions {
+    margin-bottom: 3rem;
+}
+
+.quick-actions h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.action-btn {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border: none;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+}
+
+/* Recent Activity */
+.recent-activity {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recent-activity h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #4ecdc4;
+}
+
+.activity-item i {
+    color: #4ecdc4;
+    font-size: 1.2rem;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+/* Workout Types */
+.workout-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.workout-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.workout-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.workout-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.workout-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.workout-card p {
+    color: #cccccc;
+    margin-bottom: 1.5rem;
+}
+
+.workout-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.workout-stats span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+/* AI Section */
+.ai-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ai-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.ai-section p {
+    color: #cccccc;
+    margin-bottom: 2rem;
+}
+
+.ai-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.ai-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Workout History */
+.workout-history {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.workout-history h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #ff6b6b;
+}
+
+/* Water Tracking */
+.water-tracking {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.water-tracking h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.water-display {
+    margin-bottom: 2rem;
+}
+
+.water-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.water-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    transition: height 0.5s ease;
+    height: 0%;
+}
+
+.water-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.water-text span {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.water-text small {
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+.water-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.water-btn {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.water-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+}
+
+/* Meal Planning */
+.meal-planning {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meal-planning h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.meal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.meal-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border: none;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.meal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+.meal-plan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.meal-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.meal-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #4ecdc4;
+}
+
+.meal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meal-item:last-child {
+    border-bottom: none;
+}
+
+.meal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.meal-name {
+    font-weight: 500;
+}
+
+.meal-calories {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+.meal-protein {
+    font-size: 0.8rem;
+    color: #4ecdc4;
+}
+
+/* Progress Section */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.progress-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.progress-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.progress-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #cccccc;
+}
+
+.progress-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Data Management */
+.data-management {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.data-management h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.data-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.data-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border: none;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.data-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.data-btn.danger {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+}
+
+.data-btn.danger:hover {
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d1b69 100%);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #cccccc;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff6b6b;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+/* Exercise List */
+.exercise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.exercise-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.exercise-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.exercise-details {
+    display: flex;
+    gap: 1rem;
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+.workout-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.workout-btn {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.workout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+}
+
+.workout-btn.secondary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.workout-btn.secondary:hover {
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Quiz Styles */
+.quiz-question {
+    margin-bottom: 2rem;
+}
+
+.quiz-question h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.quiz-option {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.quiz-option.selected {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border-color: transparent;
+}
+
+.quiz-results {
+    text-align: center;
+}
+
+.quiz-results h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4ecdc4;
+}
+
+.quiz-recommendations {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Scanner Styles */
+.scanner-placeholder {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.scanner-placeholder i {
+    font-size: 4rem;
+    color: #4ecdc4;
+    margin-bottom: 1rem;
+}
+
+.scanner-placeholder h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.scanner-placeholder p {
+    color: #cccccc;
+    margin-bottom: 2rem;
+}
+
+.scanner-btn {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.scanner-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+}
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toast {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: toastSlideIn 0.3s ease;
+    max-width: 300px;
+}
+
+@keyframes toastSlideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.toast.success {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+}
+
+.toast.error {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+}
+
+.toast.info {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+    
+    .stat-card {
+        padding: 1.5rem;
+    }
+    
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .workout-types {
+        grid-template-columns: 1fr;
+    }
+    
+    .water-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .meal-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .progress-stats {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .data-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .workout-controls {
+        flex-direction: column;
+    }
+    
+    .toast-container {
+        left: 20px;
+        right: 20px;
+    }
+    
+    .toast {
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .dashboard-header h2 {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .water-circle {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .water-text span {
+        font-size: 1.5rem;
+    }
+}
+
+/* Workout Progress Bar Styles */
+.workout-progress {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4ecdc4, #44a08d);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#progress-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4ecdc4;
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+}
+
+.progress-btn {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.progress-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.progress-btn:active {
+    transform: scale(0.98);
+}
+
+.progress-btn i {
+    font-size: 1rem;
+}
+
+/* Improved Touch Targets for All Interactive Elements */
+.nav-btn, .action-btn, .water-btn, .meal-btn, .data-btn, .ai-btn, .workout-btn, .progress-btn, .scanner-btn {
+    min-height: 44px;
+    min-width: 44px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Better Visual Feedback for Touch */
+.workout-card:hover, .meal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.workout-card:active, .meal-card:active {
+    transform: translateY(-1px);
+    transition: transform 0.1s ease;
+}
+
+/* Ensure buttons work properly on mobile */
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+button:focus {
+    outline: 2px solid #4ecdc4;
+    outline-offset: 2px;
+}
+
+/* Additional mobile improvements */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .main {
+        padding: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+    }
+    
+    .workout-card h3 {
+        font-size: 1rem;
+    }
+    
+    .workout-card p {
+        font-size: 0.8rem;
+    }
+    
+    .workout-stats {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .workout-stats span {
+        font-size: 0.8rem;
+    }
+    
+    .modal-content {
+        margin: 5px;
+        width: calc(100% - 10px);
+        max-height: 95vh;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .exercise-item {
+        padding: 0.75rem;
+    }
+    
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .exercise-details {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .exercise-details span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Ensure recipe buttons are always clickable */
+.recipe-btn {
+    position: relative;
+    z-index: 10;
+}
+
+.recipe-btn::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+}
+
+/* Better focus states for accessibility */
+.recipe-btn:focus-visible {
+    outline: 3px solid #ff6b6b;
+    outline-offset: 2px;
+    border-radius: 25px;
+}
+
+/* Ensure proper button sizing on all devices */
+.recipe-btn {
+    box-sizing: border-box;
+    line-height: 1.2;
+}
+
+/* Fix for iOS Safari button issues */
+@supports (-webkit-touch-callout: none) {
+    .recipe-btn {
+        -webkit-appearance: none;
+        border-radius: 20px;
+    }
+    
+    button {
+        -webkit-appearance: none;
+        border-radius: inherit;
+    }
+}
+
+/* Barcode Scanner Styles */
+.scanner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.viewport {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.scanner-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #4ecdc4;
+    animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(-50px); }
+    100% { transform: translateY(50px); }
+}
+
+.scanner-instructions {
+    text-align: center;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.scanner-instructions p {
+    margin: 0.25rem 0;
+}
+
+.scanned-product-result,
+.unknown-product-result,
+.product-info-result {
+    text-align: center;
+    padding: 1rem;
+}
+
+.scanned-product-result i,
+.unknown-product-result i {
+    font-size: 3rem;
+    color: #4ecdc4;
+    margin-bottom: 1rem;
+}
+
+.unknown-product-result i {
+    color: #ff6b6b;
+}
+
+.product-description {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.product-description p {
+    margin: 0;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.scanned-food-card {
+    border: 2px solid #4ecdc4;
+    background: rgba(78, 205, 196, 0.1);
+}
+
+.product-info-content {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.product-info-content h4 {
+    color: #4ecdc4;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.product-info-content ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.product-info-content li {
+    margin: 0.25rem 0;
+    color: #ffffff;
+}
+
+/* Enhanced Mobile Button Styles - SIMPLIFIED */
+button, .nav-btn, .action-btn, .workout-card, .meal-card, .exercise-btn, .recipe-btn, .scanner-btn, .stats-card, .water-btn, .progress-btn, .exercise-item, .meal-item {
+    /* Ensure minimum touch target size */
+    min-height: 44px;
+    min-width: 44px;
+    
+    /* Simple touch behavior */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    
+    /* Remove default button styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* Ensure proper cursor */
+    cursor: pointer;
+    
+    /* Simple transitions */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    
+    /* Prevent focus outline on mobile */
+    outline: none;
+}
+
+/* Simple button states */
+button:active, .nav-btn:active, .action-btn:active, .workout-card:active, .meal-card:active, .exercise-btn:active, .recipe-btn:active, .scanner-btn:active, .stats-card:active, .water-btn:active, .progress-btn:active, .exercise-item:active, .meal-item:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+/* iOS Safari simple fixes */
+@supports (-webkit-touch-callout: none) {
+    button, .nav-btn, .action-btn, .workout-card, .meal-card, .exercise-btn, .recipe-btn, .scanner-btn, .stats-card, .water-btn, .progress-btn, .exercise-item, .meal-item {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+    /* Larger touch targets for mobile */
+    button, .nav-btn, .action-btn, .workout-card, .meal-card, .exercise-btn, .recipe-btn, .scanner-btn, .stats-card, .water-btn, .progress-btn, .exercise-item, .meal-item {
+        min-height: 56px;
+        min-width: 56px;
+        padding: 12px 16px;
+        font-size: 16px; /* Prevent zoom on iOS */
+        line-height: 1.4;
+    }
+    
+    /* Ensure proper spacing */
+    .nav-btn {
+        margin: 4px;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .action-btn {
+        margin: 6px;
+        padding: 14px 20px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    
+    .workout-card, .meal-card {
+        margin: 8px 0;
+        padding: 16px;
+        min-height: 80px;
+    }
+    
+    .exercise-btn {
+        margin: 4px;
+        padding: 12px 18px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 25px;
+    }
+    
+    .recipe-btn {
+        margin: 4px;
+        padding: 10px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        z-index: 10;
+        position: relative;
+    }
+    
+    .scanner-btn {
+        margin: 6px;
+        padding: 14px 20px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    
+    .water-btn {
+        margin: 4px;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 600;
+        min-width: 60px;
+        min-height: 60px;
+    }
+    
+    .progress-btn {
+        margin: 4px;
+        padding: 12px 18px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    /* Enhanced card interactions */
+    .workout-card:active, .meal-card:active, .exercise-item:active, .meal-item:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Better visual feedback */
+    .touch-active {
+        transform: scale(0.95) !important;
+        opacity: 0.8 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .main {
+        padding: 0.75rem;
+    }
+    
+    .header .container {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+    
+    .logo p {
+        font-size: 0.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-header p {
+        font-size: 0.8rem;
+    }
+    
+    .nav-btn {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.4rem;
+        min-width: 60px;
+    }
+    
+    .workout-card, .meal-card {
+        padding: 1rem;
+        min-height: 120px;
+    }
+    
+    .modal-content {
+        margin: 5px;
+        width: calc(100% - 10px);
+        max-height: 95vh;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .exercise-item {
+        padding: 0.75rem;
+    }
+    
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .exercise-details {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .exercise-details span {
+        font-size: 0.75rem;
+    }
+}
+
+/* Fix for iOS Safari button issues */
+@supports (-webkit-touch-callout: none) {
+    button, .recipe-btn {
+        -webkit-appearance: none;
+        border-radius: inherit;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    .recipe-btn {
+        border-radius: 20px;
+    }
+    
+    .workout-card, .meal-card {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Ensure proper button behavior */
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+button:focus {
+    outline: 2px solid #4ecdc4;
+    outline-offset: 2px;
+}
+
+/* Better focus states for accessibility */
+.recipe-btn:focus-visible {
+    outline: 3px solid #ff6b6b;
+    outline-offset: 2px;
+    border-radius: 25px;
+}
+
+/* Ensure recipe buttons are always clickable */
+.recipe-btn {
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.recipe-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(255, 107, 107, 0.4);
+}
+
+.recipe-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3);
+}
+
+/* Exercise Progress Styles - Enhanced for mobile */
+.exercise-progress {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.current-exercise-info {
+    margin-bottom: 1rem;
+}
+
+.current-exercise-info h3 {
+    color: #4ecdc4;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+}
+
+.current-exercise-info p {
+    color: #ffffff;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.exercise-progress-bar {
+    margin-bottom: 1.5rem;
+}
+
+.exercise-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 8px;
+}
+
+.exercise-btn {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.exercise-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.exercise-btn:active {
+    transform: scale(0.98);
+}
+
+.exercise-progress-indicator {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.exercise-status {
+    font-size: 0.9rem;
+    color: #cccccc;
+    transition: color 0.3s ease;
+}
+
+.exercise-status.active {
+    color: #4ecdc4;
+    font-weight: 600;
+}
+
+.exercise-status.completed {
+    color: #4ecdc4;
+    font-weight: 600;
+}
+
+.exercise-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.exercise-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.exercise-name {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.exercise-details {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: #cccccc;
+}
+
+.exercise-details span {
+    background: rgba(78, 205, 196, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    color: #4ecdc4;
+}
+
+/* Mobile responsiveness for exercise progress */
+@media (max-width: 768px) {
+    .exercise-progress {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .current-exercise-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .current-exercise-info p {
+        font-size: 0.9rem;
+    }
+    
+    .exercise-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 1rem;
+        padding: 0 8px;
+    }
+    
+    .exercise-btn {
+        min-width: 120px;
+        font-size: 14px;
+        padding: 12px 8px;
+        justify-content: center;
+    }
+    
+    .exercise-stats {
+        flex-direction: column;
+        gap: 0.25rem;
+        text-align: center;
+    }
+    
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .exercise-details {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .exercise-details span {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .exercise-item {
+        padding: 0.75rem;
+    }
+    
+    .exercise-name {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .exercise-progress {
+        padding: 0.75rem;
+    }
+    
+    .current-exercise-info h3 {
+        font-size: 1rem;
+    }
+    
+    .current-exercise-info p {
+        font-size: 0.8rem;
+    }
+    
+    .exercise-btn {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+        min-height: 44px;
+    }
+    
+    .exercise-item {
+        padding: 0.5rem;
+    }
+    
+    .exercise-name {
+        font-size: 0.85rem;
+    }
+    
+    .exercise-details span {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.3rem;
+    }
+}
+
+/* Automatic Scanner Styles (like Yuka) */
+.scanner-viewport {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.viewport {
+    width: 100%;
+    height: 400px;
+    background: #000;
+    position: relative;
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.scanner-line {
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4ecdc4, transparent);
+    animation: scan 2s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes scan {
+    0%, 100% { transform: translateY(-50px); opacity: 0.5; }
+    50% { transform: translateY(50px); opacity: 1; }
+}
+
+.scanner-instructions {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.scanner-instructions p {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.scanner-instructions i {
+    color: #4ecdc4;
+    margin-right: 8px;
+}
+
+.scanner-status {
+    color: #4ecdc4 !important;
+    font-weight: 600;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.scanner-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.scanner-error {
+    text-align: center;
+    padding: 40px 20px;
+    color: #ff6b6b;
+}
+
+.scanner-error i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.scanner-error h3 {
+    margin-bottom: 1rem;
+    color: #ff6b6b;
+}
+
+.scanner-error p {
+    margin-bottom: 1.5rem;
+    color: #cccccc;
+}
+
+/* Enhanced scanner button */
+.scanner-btn {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    min-width: 48px;
+}
+
+.scanner-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(78, 205, 196, 0.3);
+}
+
+.scanner-btn:active {
+    transform: translateY(0);
+}
+
+/* Mobile responsiveness for scanner */
+@media (max-width: 768px) {
+    .scanner-viewport {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+    
+    .viewport {
+        height: 300px;
+    }
+    
+    .scanner-instructions {
+        padding: 12px 16px;
+        border-radius: 20px;
+    }
+    
+    .scanner-instructions p {
+        font-size: 13px;
+    }
+    
+    .scanner-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .viewport {
+        height: 250px;
+    }
+    
+    .scanner-instructions {
+        padding: 10px 14px;
+    }
+    
+    .scanner-instructions p {
+        font-size: 12px;
+    }
+    
+    .scanner-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+        min-height: 40px;
+    }
+}
+
+/* Coming Soon Styles */
+.coming-soon-container {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.coming-soon-icon {
+    font-size: 4rem;
+    color: #4ecdc4;
+    margin-bottom: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.coming-soon-container h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.coming-soon-container h3 {
+    font-size: 1.5rem;
+    color: #4ecdc4;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.coming-soon-container p {
+    color: #cccccc;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.coming-soon-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(78, 205, 196, 0.1);
+    border: 1px solid rgba(78, 205, 196, 0.3);
+    border-radius: 12px;
+    color: #4ecdc4;
+    font-weight: 500;
+}
+
+.feature i {
+    font-size: 1.2rem;
+}
+
+/* Enhanced Mobile Responsiveness - FINAL FIX */
+@media (max-width: 768px) {
+    /* General mobile improvements */
+    * {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+    
+    /* Container and layout */
+    .container {
+        padding: 0.5rem;
+        max-width: 100%;
+    }
+    
+    .main {
+        padding: 0.5rem;
+    }
+    
+    /* Header improvements */
+    .header {
+        padding: 0.75rem 0;
+    }
+    
+    .header .container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    /* Navigation improvements */
+    .nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.25rem;
+        padding: 0.5rem;
+    }
+    
+    .nav-btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
+        min-height: 48px;
+        min-width: 48px;
+        border-radius: 8px;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+    
+    .nav-btn i {
+        font-size: 1rem;
+    }
+    
+    /* Section headers */
+    .section-header {
+        margin-bottom: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+    }
+    
+    /* Stats grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .stat-card {
+        padding: 0.75rem;
+        min-height: 80px;
+    }
+    
+    .stat-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .stat-card p {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    
+    /* Action buttons */
+    .action-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .action-btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+        min-height: 48px;
+        border-radius: 8px;
+        font-weight: 600;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+    
+    .action-btn i {
+        font-size: 1.2rem;
+    }
+    
+    /* Workout cards */
+    .workout-types {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .workout-card {
+        padding: 1rem;
+        min-height: 120px;
+        margin-bottom: 0;
+    }
+    
+    .workout-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .workout-card p {
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .workout-stats {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .workout-stats span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    /* Water tracking */
+    .water-tracking {
+        padding: 1rem;
+    }
+    
+    .water-display {
+        margin-bottom: 1rem;
+    }
+    
+    .water-circle {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1rem;
+    }
+    
+    .water-text span {
+        font-size: 1.5rem;
+    }
+    
+    .water-text small {
+        font-size: 0.8rem;
+    }
+    
+    .water-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .water-btn {
+        width: 100%;
+        height: 60px;
+        font-size: 0.8rem;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    
+    /* Meal planning */
+    .meal-planning {
+        padding: 1rem;
+    }
+    
+    .meal-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .meal-btn {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        min-height: 48px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    
+    .meal-card {
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .meal-card h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .meal-item {
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .meal-name {
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .meal-calories, .meal-protein {
+        font-size: 0.7rem;
+    }
+    
+    /* Recipe button */
+    .recipe-btn {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.7rem;
+        min-height: 36px;
+        border-radius: 6px;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Progress stats */
+    .progress-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .progress-card {
+        padding: 0.75rem;
+        min-height: 80px;
+    }
+    
+    .progress-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .progress-number {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    
+    /* Data management */
+    .data-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .data-btn {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+        min-height: 48px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    
+    /* Modal improvements */
+    .modal-content {
+        margin: 0.5rem;
+        max-height: 95vh;
+        width: calc(100% - 1rem);
+        border-radius: 12px;
+        padding: 1rem;
+    }
+    
+    .modal-header {
+        margin-bottom: 1rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    /* Exercise items */
+    .exercise-item {
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .exercise-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    
+    .exercise-details {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .exercise-details span {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    /* Exercise progress */
+    .exercise-progress {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .current-exercise-info h3 {
+        font-size: 1rem;
+    }
+    
+    .current-exercise-info p {
+        font-size: 0.8rem;
+    }
+    
+    .exercise-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .exercise-btn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 0.8rem;
+        min-height: 48px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    
+    .exercise-stats {
+        flex-direction: column;
+        gap: 0.25rem;
+        text-align: center;
+    }
+    
+    /* Coming soon */
+    .coming-soon-container {
+        padding: 2rem 1rem;
+    }
+    
+    .coming-soon-icon {
+        font-size: 3rem;
+    }
+    
+    .coming-soon-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .coming-soon-container h3 {
+        font-size: 1.2rem;
+    }
+    
+    .coming-soon-container p {
+        font-size: 0.9rem;
+    }
+    
+    .coming-soon-features {
+        gap: 0.75rem;
+    }
+    
+    .feature {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .feature i {
+        font-size: 1rem;
+    }
+    
+    /* Toast notifications */
+    .toast-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+    }
+    
+    .toast {
+        max-width: none;
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    button, .nav-btn, .action-btn, .workout-card, .meal-card, .exercise-btn, .recipe-btn, .scanner-btn, .stats-card, .water-btn, .progress-btn, .exercise-item, .meal-item {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        position: relative;
+        z-index: 1;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Fix for iOS button press delay */
+    button:active, .nav-btn:active, .action-btn:active, .workout-card:active, .meal-card:active, .exercise-btn:active, .recipe-btn:active, .scanner-btn:active, .stats-card:active, .water-btn:active, .progress-btn:active, .exercise-item:active, .meal-item:active {
+        -webkit-transform: scale(0.98) translateZ(0);
+        transform: scale(0.98) translateZ(0);
+    }
+}
+
+/* Extra small devices - Additional mobile optimization */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.25rem;
+    }
+    
+    .main {
+        padding: 0.25rem;
+    }
+    
+    .nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.2rem;
+        padding: 0.25rem;
+    }
+    
+    .nav-btn {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.7rem;
+        min-height: 44px;
+    }
+    
+    .nav-btn i {
+        font-size: 0.9rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .section-header p {
+        font-size: 0.8rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+    
+    .action-buttons {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+    
+    .action-btn {
+        padding: 0.6rem;
+        font-size: 0.75rem;
+        min-height: 44px;
+    }
+    
+    .workout-card {
+        padding: 0.75rem;
+        min-height: 100px;
+    }
+    
+    .workout-card h3 {
+        font-size: 0.9rem;
+    }
+    
+    .workout-card p {
+        font-size: 0.75rem;
+    }
+    
+    .water-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .water-text span {
+        font-size: 1.3rem;
+    }
+    
+    .water-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+    
+    .water-btn {
+        height: 50px;
+        font-size: 0.75rem;
+    }
+    
+    .meal-btn {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+        min-height: 44px;
+    }
+    
+    .meal-card {
+        padding: 0.6rem;
+    }
+    
+    .meal-card h4 {
+        font-size: 0.8rem;
+    }
+    
+    .meal-item {
+        padding: 0.4rem;
+    }
+    
+    .meal-name {
+        font-size: 0.75rem;
+    }
+    
+    .meal-calories, .meal-protein {
+        font-size: 0.65rem;
+    }
+    
+    .recipe-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.65rem;
+        min-height: 32px;
+    }
+    
+    .progress-stats {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+    
+    .progress-card {
+        padding: 0.6rem;
+        min-height: 70px;
+    }
+    
+    .progress-card h3 {
+        font-size: 0.75rem;
+    }
+    
+    .progress-number {
+        font-size: 1.1rem;
+    }
+    
+    .data-btn {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+        min-height: 44px;
+    }
+    
+    .modal-content {
+        margin: 0.25rem;
+        width: calc(100% - 0.5rem);
+        padding: 0.75rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .exercise-item {
+        padding: 0.6rem;
+    }
+    
+    .exercise-name {
+        font-size: 0.8rem;
+    }
+    
+    .exercise-details span {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.3rem;
+    }
+    
+    .exercise-progress {
+        padding: 0.75rem;
+    }
+    
+    .current-exercise-info h3 {
+        font-size: 0.9rem;
+    }
+    
+    .current-exercise-info p {
+        font-size: 0.75rem;
+    }
+    
+    .exercise-btn {
+        padding: 0.6rem;
+        font-size: 0.75rem;
+        min-height: 44px;
+    }
+    
+    .coming-soon-container {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .coming-soon-icon {
+        font-size: 2.5rem;
+    }
+    
+    .coming-soon-container h2 {
+        font-size: 1.3rem;
+    }
+    
+    .coming-soon-container h3 {
+        font-size: 1.1rem;
+    }
+    
+    .coming-soon-container p {
+        font-size: 0.8rem;
+    }
+    
+    .feature {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+    
+    .feature i {
+        font-size: 0.9rem;
+    }
+    
+    .toast {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* Mobile-specific fixes for Netlify deployment */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure proper viewport handling */
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Fix for iOS Safari viewport issues */
+@supports (-webkit-touch-callout: none) {
+    body {
+        min-height: -webkit-fill-available;
+    }
+    
+    .main {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Ensure buttons work properly on mobile */
+button, .nav-btn, .action-btn, .workout-card, .meal-card, .exercise-btn, .recipe-btn, .scanner-btn, .stats-card, .water-btn, .progress-btn, .exercise-item, .meal-item {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Progress Update Controls */
+.progress-update-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.progress-btn {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.progress-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.progress-btn:active {
+    transform: scale(0.98);
+}
+
+.progress-btn i {
+    font-size: 1rem;
+}
+
+/* Enhanced Mobile Button Handling */
+button, .nav-btn, .action-btn, .workout-card, .meal-card, .exercise-btn, .recipe-btn, .scanner-btn, .stats-card, .water-btn, .progress-btn, .exercise-item, .meal-item {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mobile-specific button improvements */
+@media (max-width: 768px) {
+    button, .nav-btn, .action-btn, .workout-card, .meal-card, .exercise-btn, .recipe-btn, .scanner-btn, .stats-card, .water-btn, .progress-btn {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 12px 16px;
+        font-size: 16px; /* Prevent zoom on iOS */
+        border-radius: 8px;
+        transition: all 0.2s ease;
+    }
+    
+    /* Ensure buttons are properly spaced on mobile */
+    .progress-update-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 1rem;
+        padding: 0 8px;
+    }
+    
+    .progress-btn {
+        min-width: 120px;
+        font-size: 14px;
+        padding: 12px 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        justify-content: center;
+    }
+    
+    /* Exercise controls mobile optimization */
+    .exercise-controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 1rem;
+        padding: 0 8px;
+    }
+    
+    .exercise-btn {
+        min-width: 120px;
+        font-size: 14px;
+        padding: 12px 8px;
+        justify-content: center;
+    }
+    
+    /* Modal content mobile optimization */
+    .modal-content {
+        margin: 10px;
+        max-height: calc(100vh - 20px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Ensure proper touch targets */
+    .nav-btn {
+        padding: 12px 16px;
+        margin: 4px;
+        min-height: 48px;
+    }
+    
+    .action-btn, .workout-btn, .meal-btn, .data-btn {
+        padding: 12px 16px;
+        margin: 4px;
+        min-height: 48px;
+        font-size: 16px;
+    }
+}
+
+/* Active state for better touch feedback */
+button:active, .nav-btn:active, .action-btn:active, .workout-card:active, .meal-card:active, .exercise-btn:active, .recipe-btn:active, .scanner-btn:active, .stats-card:active, .water-btn:active, .progress-btn:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Focus states for accessibility */
+button:focus-visible, .nav-btn:focus-visible, .action-btn:focus-visible, .workout-card:focus-visible, .meal-card:focus-visible, .exercise-btn:focus-visible, .recipe-btn:focus-visible, .scanner-btn:focus-visible, .stats-card:focus-visible, .water-btn:focus-visible, .progress-btn:focus-visible {
+    outline: 3px solid #4ecdc4;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Progress Update Controls - Always visible */
+.progress-update-controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 8px;
+}
+
+.progress-btn {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.progress-btn:active {
+    transform: scale(0.98);
+}
